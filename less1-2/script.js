@@ -1,4 +1,4 @@
-let money = +prompt("Ваш бюджет на месяц?", '');
+let money = readBudget();
 let time = prompt("Введите дату в формате YYYY-MM-DD", '');
 
 let appData = {
@@ -33,6 +33,13 @@ if (appData.moneyPerDay < 100) {
   console.log("Высокий уровень достатка");
 } else {
   console.log("Произошла ошибка");
+}
+
+function readBudget() {
+  while (true) {
+    let userInput = prompt("Ваш бюджет на месяц?", '');
+    if (userInput && isFinite(userInput)) return parseFloat(userInput);
+  }
 }
 
 /*
